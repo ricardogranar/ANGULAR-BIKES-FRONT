@@ -1,3 +1,4 @@
+import { BikesService } from './services/bikes.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-bikes-proyect';
+
+
+constructor(
+  private BikesService: BikesService
+) {
+  this.BikesService.getBikes().subscribe(resp => {
+    console.log(resp)
+  })
+}
 }
